@@ -58,13 +58,45 @@
         <!--Entry View Controller-->
         <scene sceneID="7oc-1f-tu4">
             <objects>
-                <viewController id="3YQ-lV-pi6" customClass="EntryViewController" customModule="ToDoListApp_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="entry" id="3YQ-lV-pi6" customClass="EntryViewController" customModule="ToDoListApp_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1TX-Bx-mGd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-T9-vve">
+                                <rect key="frame" x="20" y="94" width="374" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Thj-jb-vk4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57t-4i-o5c">
+                                <rect key="frame" x="157" y="229" width="100" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="NgP-xA-yaJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveTask" destination="3YQ-lV-pi6" eventType="touchUpInside" id="GR8-kk-rE4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="NDP-tj-4BX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="57t-4i-o5c" firstAttribute="top" secondItem="e0U-T9-vve" secondAttribute="bottom" constant="35" id="3bc-zh-KB7"/>
+                            <constraint firstItem="57t-4i-o5c" firstAttribute="centerX" secondItem="1TX-Bx-mGd" secondAttribute="centerX" id="8hL-lf-jd9"/>
+                            <constraint firstItem="e0U-T9-vve" firstAttribute="leading" secondItem="NDP-tj-4BX" secondAttribute="leading" constant="20" id="Unk-st-gBH"/>
+                            <constraint firstItem="NDP-tj-4BX" firstAttribute="trailing" secondItem="e0U-T9-vve" secondAttribute="trailing" constant="20" id="YEy-QN-CjU"/>
+                            <constraint firstItem="e0U-T9-vve" firstAttribute="top" secondItem="NDP-tj-4BX" secondAttribute="top" constant="50" id="fM2-fT-6U3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="field" destination="e0U-T9-vve" id="hWA-QS-RQA"/>
+                        <outlet property="saveButton" destination="57t-4i-o5c" id="nJX-n6-0VY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YW9-R3-0rM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,13 +105,46 @@
         <!--Task View Controller-->
         <scene sceneID="exX-8w-fj1">
             <objects>
-                <viewController id="6bA-Cg-wJk" customClass="TaskViewController" customModule="ToDoListApp_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="task" id="6bA-Cg-wJk" customClass="TaskViewController" customModule="ToDoListApp_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Fu-iV-ax5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-3t-xnq">
+                                <rect key="frame" x="20" y="94" width="374" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="jk0-aR-TiE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkK-D6-M3g">
+                                <rect key="frame" x="157" y="229" width="100" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="45a-Hl-xEV"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteTask:" destination="6bA-Cg-wJk" eventType="touchUpInside" id="ywM-tP-vfX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8uf-7F-10e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TXv-3t-xnq" firstAttribute="top" secondItem="8uf-7F-10e" secondAttribute="top" constant="50" id="VoC-Kw-QRJ"/>
+                            <constraint firstItem="BkK-D6-M3g" firstAttribute="centerX" secondItem="4Fu-iV-ax5" secondAttribute="centerX" id="W2D-3d-hAF"/>
+                            <constraint firstItem="BkK-D6-M3g" firstAttribute="top" secondItem="TXv-3t-xnq" secondAttribute="bottom" constant="35" id="Wc6-2M-wDV"/>
+                            <constraint firstItem="8uf-7F-10e" firstAttribute="trailing" secondItem="TXv-3t-xnq" secondAttribute="trailing" constant="20" id="nCc-eS-uT0"/>
+                            <constraint firstItem="TXv-3t-xnq" firstAttribute="leading" secondItem="8uf-7F-10e" secondAttribute="leading" constant="20" id="tY9-c8-ghN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="BkK-D6-M3g" id="mw8-84-8eK"/>
+                        <outlet property="label" destination="TXv-3t-xnq" id="dKL-7p-OWD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Zh-MN-uHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
